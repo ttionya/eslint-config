@@ -1,0 +1,8 @@
+.
+
+# dist
+dist
+
+# test
+tests/*
+!tests/index.js
