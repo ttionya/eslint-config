@@ -22,14 +22,14 @@ deploy:
     email: $NPM_EMAIL
     api_key: $NPM_TOKEN
     on:
-      branch: master
       tags: true
+      all_branches: true
   - provider: releases
     skip_cleanup: true
     api_key: $GITHUB_TOKEN
     on:
-      branch: master
       tags: true
+      all_branches: true
 
 cache:
   directories:
