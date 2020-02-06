@@ -127,6 +127,83 @@ module.exports = {
     strict: ['error', 'safe'],
 
     /**
+     * 在数组开括号后和闭括号前强制换行
+     */
+    'array-bracket-newline': ['error', 'consistent'],
+
+    /**
+     * 强制数组方括号中使用一致的空格
+     */
+    'array-bracket-spacing': ['error', 'never'],
+
+    /**
+     * 强制数组元素间出现换行
+     */
+    'array-element-newline': ['error', 'consistent'],
+
+    /**
+     * 强制在代码块中开括号前和闭括号后有空格
+     */
+    'block-spacing': ['error', 'always'],
+
+    /**
+     * 大括号风格要求
+     */
+    'brace-style': [
+      'error',
+      '1tbs',
+      {
+        allowSingleLine: true,
+      },
+    ],
+
+    /**
+     * 要求尾逗号，除非在一行内
+     */
+    'comma-dangle': ['error', 'always-multiline'],
+
+    /**
+     * 强制在逗号周围使用空格
+     */
+    'comma-spacing': [
+      'error',
+      {
+        before: false,
+        after: true,
+      },
+    ],
+
+    /**
+     * 强制逗号在末尾
+     */
+    'comma-style': ['error', 'last'],
+
+    /**
+     * 强制在计算的属性的方括号中不加空格
+     */
+    'computed-property-spacing': ['error', 'never'],
+
+    /**
+     * 文件末尾需要空行
+     */
+    'eol-last': ['error', 'always'],
+
+    /**
+     * 禁止在函数标识符和其调用之间有空格
+     */
+    'func-call-spacing': ['error', 'never'],
+
+    /**
+     * 强制函数调用参数换行方式
+     */
+    'function-call-argument-newline': ['error', 'consistent'],
+
+    /**
+     * 强制在函数括号内使用一致的换行
+     */
+    'function-paren-newline': ['error', 'multiline-arguments'],
+
+    /**
      * 禁止将 undefined 赋值给变量
      */
     'no-undef-init': 'error',

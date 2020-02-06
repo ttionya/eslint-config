@@ -23,7 +23,7 @@ function externalRules() {
      * ECMAScript 6
      */
     // 强制所有控制语句使用一致的括号风格
-    'curly': ['error', 'all'],
+    'curly': ['error', 'multi-line'], // all
     // 要求使用 === 和 !==
     'eqeqeq': ['error', 'smart'],
     // 禁止 if 语句中 return 语句之后有 else 块
@@ -42,30 +42,6 @@ function externalRules() {
     /**
      * Stylistic Issues
      */
-    // 在数组开括号后和闭括号前强制换行
-    'array-bracket-newline': ['error', 'consistent'],
-    // 强制数组方括号中使用一致的空格
-    'array-bracket-spacing':['error', 'never'],
-    // 强制数组元素间出现换行
-    'array-element-newline': ['error', 'consistent'],
-    // 强制在代码块中开括号前和闭括号后有空格
-    'block-spacing': ['error', 'always'],
-    // 大括号风格要求
-    'brace-style': ['error', '1tbs', {
-      allowSingleLine: true,
-    }],
-    // 要求末尾逗号
-    'comma-dangle': ['error', 'always-multiline'],
-    // 强制在逗号周围使用空格
-    'comma-spacing': 'error',
-    // 逗号风格
-    'comma-style': 'error',
-    // 要求或禁止文件末尾保留一行空行
-    'eol-last': 'error',
-    // 禁止在函数标识符和其调用之间有空格
-    'func-call-spacing': 'error',
-    // 强制在函数括号内使用一致的换行
-    'function-paren-newline': ['error', 'multiline'],
     // 强制隐式返回的箭头函数体的位置
     'implicit-arrow-linebreak': ['error', 'beside'],
     // 强制关键字周围空格的一致性
