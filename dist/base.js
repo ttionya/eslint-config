@@ -39,6 +39,17 @@ module.exports = {
 
   rules: {
     /**
+     * 禁止直接使用 Buffer 构造函数
+     * @reason Buffer 已被废弃，使用其方法代替
+     */
+    'no-buffer-constructor': 'error',
+
+    /**
+     * 禁止直接 new require('foo')
+     */
+    'no-new-require': 'error',
+
+    /**
      * 禁止在条件表达式中使用赋值语句，除非这个赋值语句被括号包起来了
      */
     'no-cond-assign': ['error', 'except-parens'],
@@ -109,5 +120,28 @@ module.exports = {
      * @reason 防止出错
      */
     'no-template-curly-in-string': 'error',
+
+    /**
+     * 根据情况使用严格模式
+     */
+    strict: ['error', 'safe'],
+
+    /**
+     * 禁止将 undefined 赋值给变量
+     */
+    'no-undef-init': 'error',
+
+    /**
+     * 变量必须先定义后使用
+     * @reason 存在函数后调用的问题
+     */
+    'no-use-before-define': [
+      'error',
+      {
+        variables: false,
+        functions: false,
+        classes: false,
+      },
+    ],
   },
 }
