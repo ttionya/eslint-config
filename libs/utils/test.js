@@ -75,7 +75,7 @@ const badReportTest = (badReports) => {
 
     it(ruleName, () => {
       assert.notEqual(shouldErrorCount, -1, `Can't read ${filePath} error count.`)
-      assert.notEqual(errorCount, shouldErrorCount, `${filePath} should have more than 1 error.`)
+      assert.equal(errorCount, shouldErrorCount, `${filePath} should have ${shouldErrorCount} errors.`)
     })
   })
 }
@@ -99,10 +99,10 @@ module.exports = {
  */
 function getBadReportErrorCount(filePath) {
   const badReportContent = readFileSync(filePath, 'utf-8')
-  const match = /\/\/ errorCount (\d)+/.exec(badReportContent)
+  const match = /\/\/ errorCount (\d+)/.exec(badReportContent)
 
   if (match) {
-    return +match[0]
+    return +match[1]
   }
 
   return -1

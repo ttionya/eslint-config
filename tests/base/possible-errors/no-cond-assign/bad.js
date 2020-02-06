@@ -1,8 +1,9 @@
 // errorCount 1
 
 let foo = 0
+let bar = 1
 
-if (foo = 0) {
+if (foo = bar) {
   // do something
 }
 
