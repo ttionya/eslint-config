@@ -29,6 +29,7 @@ deploy:
       tags: true
   - provider: releases
     token: $GITHUB_TOKEN
+    file: x
     edge: true
     on:
       tags: true
