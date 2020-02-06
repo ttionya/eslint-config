@@ -4,6 +4,8 @@ const { assert } = require('chai')
 const { sync: globSync } = require('glob')
 const { namespace } = require('../namespace')
 
+const root = path.join(__dirname, '../..')
+
 const FILE_GOOD = 'good'
 const FILE_BAD = 'bad'
 const FILE_ESLINTRC = '.eslintrc'
@@ -14,9 +16,9 @@ const FILE_EXT = ['js', 'vue', 'ts']
  */
 const checkTestFilesExists = () => {
   namespace.forEach((namespace) => {
-    const rulesPath = globSync(path.resolve(__dirname, '../../tests', namespace, '*/*'))
+    const ruleList = globSync(path.join(root, 'tests', namespace, '*/*'))
 
-    rulesPath.forEach((rulePath) => {
+    ruleList.forEach((rulePath) => {
       [
         FILE_GOOD,
         FILE_BAD,
@@ -35,12 +37,12 @@ const checkTestFilesExists = () => {
 /**
  * 返回用例的查询模式
  * @param {number} fileName 文件名
- * @param {string} rulesPath
+ * @param {string} ruleNamespacePath
  * @return {string[]}
  */
-const getReportPattern = (fileName, rulesPath) => {
+const getReportPattern = (fileName, ruleNamespacePath) => {
   return [
-    path.join(rulesPath, '**', `${fileName}.+(${FILE_EXT.join('|')})`),
+    path.join(ruleNamespacePath, '**', `${fileName}.+(${FILE_EXT.join('|')})`),
   ]
 }
 

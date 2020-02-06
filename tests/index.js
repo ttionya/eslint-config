@@ -10,6 +10,8 @@ const {
   badReportTest,
 } = require('../libs/utils/test')
 
+const root = path.join(__dirname, '..')
+
 try {
   checkTestFilesExists()
 } catch (e) {
@@ -19,20 +21,20 @@ try {
 }
 
 namespace.forEach((namespace) => {
-  const rulesPath = path.resolve(__dirname, namespace)
+  const ruleNamespacePath = path.join(__dirname, namespace)
 
   const cli = new CLIEngine({
-    configFile: `./dist/${namespace}.js`,
+    configFile: path.join(root, 'dist', `${namespace}.js`),
     ignore: false,
   })
 
   describe(namespace, () => {
     describe('good', () => {
-      goodReportTest(cli.executeOnFiles(getReportPattern(FILE_GOOD, rulesPath)))
+      goodReportTest(cli.executeOnFiles(getReportPattern(FILE_GOOD, ruleNamespacePath)))
     })
 
     describe('bad', () => {
-      badReportTest(cli.executeOnFiles(getReportPattern(FILE_BAD, rulesPath)))
+      badReportTest(cli.executeOnFiles(getReportPattern(FILE_BAD, ruleNamespacePath)))
     })
   })
 })

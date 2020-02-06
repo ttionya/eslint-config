@@ -10,6 +10,9 @@
     "eslintconfig"
   ],
   "main": "base.js",
+  "files": [
+    "base.js"
+  ],
   "homepage": "https://github.com/ttionya/eslint-config",
   "repository": {
     "type": "git",

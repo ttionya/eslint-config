@@ -4,9 +4,11 @@ const { sync: globSync } = require('glob')
 const prettier = require('prettier')
 const eslintrcMeta = require('./meta')
 
+const root = path.join(__dirname, '../..')
+
 class Generator {
   constructor() {
-    this.dist = path.resolve(__dirname, '../../', 'dist')
+    this.dist = path.join(root, 'dist')
     this.ruleNamespace = ''
     this.ruleList = []
     this.rulesContent = ''
@@ -38,14 +40,15 @@ class Generator {
    * @private
    */
   getRuleList() {
-    const ruleList = globSync(`./tests/${this.ruleNamespace}/[a-z]*/*`)
+    const ruleList = globSync(path.join(root, `tests/${this.ruleNamespace}/[a-z]*/*`))
 
     return ruleList
       .filter((rulePath) => {
-        return lstatSync(path.resolve(__dirname, '../..', rulePath)).isDirectory()
+        // 存在新建时项目 eslint 报错的情况
+        return lstatSync(rulePath).isDirectory()
       })
       .map((rulePath) => {
-        return this.getRule(path.resolve(__dirname, '../../', rulePath))
+        return this.getRule(rulePath)
       })
   }
 
@@ -73,7 +76,7 @@ class Generator {
     }
 
     // 规则注释
-    const fileContent = readFileSync(`${rulePath}/.eslintrc.js`, 'utf-8')
+    const fileContent = readFileSync(path.join(rulePath, '.eslintrc.js'), 'utf-8')
     const ruleComments = /\/\*\*.*\*\//gms.exec(fileContent)
     if (ruleComments) {
       rule.comments = ruleComments[0]
@@ -88,7 +91,7 @@ class Generator {
    * @private
    */
   getEslintrcContent() {
-    const initEslintrc = path.resolve(__dirname, '../../', 'tests', this.ruleNamespace, 'index.js')
+    const initEslintrc = path.join(root, 'tests', this.ruleNamespace, 'index.js')
 
     return readFileSync(initEslintrc, 'utf-8')
   }
@@ -111,11 +114,11 @@ class Generator {
    */
   writeFileWithPrettier(content) {
     const formattedContent = prettier.format(content, {
-      ...require('../../.prettierrc.js'),
+      ...require(`${root}/.prettierrc.js`),
       parser: 'babel',
     })
 
-    writeFileSync(`${this.dist}/${this.ruleNamespace}.js`, formattedContent, 'utf-8')
+    writeFileSync(path.join(this.dist, `${this.ruleNamespace}.js`), formattedContent, 'utf-8')
   }
 
   /**
