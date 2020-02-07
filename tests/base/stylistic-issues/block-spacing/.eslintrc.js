@@ -2,7 +2,7 @@ module.exports = {
   rules: {
 
     /**
-     * 强制在代码块中开括号前和闭括号后有空格
+     * 在代码块中开括号后和闭括号前使用空格
      */
     'block-spacing': ['error', 'always'],
   },

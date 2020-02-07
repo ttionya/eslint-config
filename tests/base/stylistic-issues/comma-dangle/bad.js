@@ -1,4 +1,5 @@
 // errorCount 3
+/* eslint-disable no-unused-vars */
 
 const foo = {
   foo: 1,
@@ -10,7 +11,5 @@ function baz(
   foo,
   bar
 ) {
-  console.log(foo, bar)
+  // do something
 }
-
-console.log(foo, bar, baz)

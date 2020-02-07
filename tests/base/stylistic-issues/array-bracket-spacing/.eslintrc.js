@@ -2,7 +2,7 @@ module.exports = {
   rules: {
 
     /**
-     * 强制数组方括号中使用一致的空格
+     * 数组方括号中前后不使用空格
      */
     'array-bracket-spacing': ['error', 'never'],
   },

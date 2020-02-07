@@ -1,6 +1,5 @@
 // errorCount 1
+/* eslint-disable no-unused-vars */
 
 const foo = 'Line 1\
 Line 2'
-
-console.log(foo)

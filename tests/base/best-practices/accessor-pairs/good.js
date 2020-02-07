@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 const foo = {
   set bar(value) {
     this.barValue = 'bar ' + value
@@ -11,5 +13,3 @@ const bar = {
     return this.fooValue
   },
 }
-
-console.log(foo, bar)

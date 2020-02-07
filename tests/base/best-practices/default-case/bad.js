@@ -1,8 +1,6 @@
 // errorCount 1
 
-const foo = 0
-
-switch (typeof foo) {
+switch (typeof 1) {
   case 'string':
     // do something
     break

@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
+
 function foo(a, b, c) {
-  console.log(a, b, c)
+  // do something
 }
 
 foo(

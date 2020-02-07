@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 const bar = () => {}
 
 async function foo() {
@@ -5,5 +7,3 @@ async function foo() {
 
   return b
 }
-
-foo().then()

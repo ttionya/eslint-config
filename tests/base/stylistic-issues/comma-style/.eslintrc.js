@@ -2,7 +2,7 @@ module.exports = {
   rules: {
 
     /**
-     * 强制逗号在末尾
+     * 逗号加在末尾
      */
     'comma-style': ['error', 'last'],
   },

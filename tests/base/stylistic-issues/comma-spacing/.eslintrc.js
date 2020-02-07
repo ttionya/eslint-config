@@ -2,7 +2,7 @@ module.exports = {
   rules: {
 
     /**
-     * 强制在逗号周围使用空格
+     * 在逗号后使用空格
      */
     'comma-spacing': [
       'error',

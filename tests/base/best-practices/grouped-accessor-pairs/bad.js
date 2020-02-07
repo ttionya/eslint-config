@@ -1,4 +1,5 @@
 // errorCount 1
+/* eslint-disable no-unused-vars */
 
 const foo = {
   set bar(value) {
@@ -9,5 +10,3 @@ const foo = {
     return this.barValue
   },
 }
-
-console.log(foo)

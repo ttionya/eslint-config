@@ -1,4 +1,5 @@
 // errorCount 2
+/* eslint-disable no-unused-vars */
 
 const foo1 = [1, 2,
 3]
@@ -10,5 +11,3 @@ const foo2 = [function () {
 function () {
   // do something
 }]
-
-console.log(foo1, foo2)

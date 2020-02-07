@@ -1,4 +1,5 @@
 // errorCount 1
+/* eslint-disable no-unused-vars */
 
 function foo() {
   return {
@@ -6,5 +7,3 @@ function foo() {
     , bar: 2,
   }
 }
-
-console.log(foo)

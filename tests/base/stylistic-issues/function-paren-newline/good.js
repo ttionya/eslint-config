@@ -1,17 +1,19 @@
+/* eslint-disable no-unused-vars */
+
 const foo = function (bar, baz) {
-  console.log(bar, baz)
+  // do something
 }
 const bar = (
   bar,
 ) => {
-  console.log(bar)
+  // do something
 }
 
 function baz(
   bar,
   baz,
 ) {
-  console.log(bar, baz)
+  // do something
 }
 
 foo(
@@ -19,5 +21,3 @@ foo(
     // do something
   },
 )
-
-console.log(bar, baz)

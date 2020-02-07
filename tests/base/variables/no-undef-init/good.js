@@ -1,3 +1,3 @@
-let foo
+/* eslint-disable no-unused-vars */
 
-console.log(foo)
+let foo

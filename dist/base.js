@@ -55,7 +55,7 @@ module.exports = {
     'array-callback-return': 'error',
 
     /**
-     * 强制所有控制语句使用一致的括号风格
+     * 控制语句使用一致的括号风格
      */
     curly: ['error', 'multi-line', 'consistent'],
 
@@ -144,7 +144,7 @@ module.exports = {
     'no-lone-blocks': 'error',
 
     /**
-     * 禁止使用多个空格
+     * 禁止使用多个空格，除了行尾注释和对象属性
      */
     'no-multi-spaces': [
       'error',
@@ -298,7 +298,7 @@ module.exports = {
     'array-bracket-newline': ['error', 'consistent'],
 
     /**
-     * 强制数组方括号中使用一致的空格
+     * 数组方括号中前后不使用空格
      */
     'array-bracket-spacing': ['error', 'never'],
 
@@ -308,7 +308,7 @@ module.exports = {
     'array-element-newline': ['error', 'consistent'],
 
     /**
-     * 强制在代码块中开括号前和闭括号后有空格
+     * 在代码块中开括号后和闭括号前使用空格
      */
     'block-spacing': ['error', 'always'],
 
@@ -329,7 +329,7 @@ module.exports = {
     'comma-dangle': ['error', 'always-multiline'],
 
     /**
-     * 强制在逗号周围使用空格
+     * 在逗号后使用空格
      */
     'comma-spacing': [
       'error',
@@ -340,12 +340,12 @@ module.exports = {
     ],
 
     /**
-     * 强制逗号在末尾
+     * 逗号加在末尾
      */
     'comma-style': ['error', 'last'],
 
     /**
-     * 强制在计算的属性的方括号中不加空格
+     * 在对象属性的方括号中不加空格
      */
     'computed-property-spacing': ['error', 'never'],
 
@@ -365,7 +365,7 @@ module.exports = {
     'function-call-argument-newline': ['error', 'consistent'],
 
     /**
-     * 强制在函数括号内使用一致的换行
+     * 在函数括号内使用一致的换行
      */
     'function-paren-newline': ['error', 'multiline-arguments'],
 

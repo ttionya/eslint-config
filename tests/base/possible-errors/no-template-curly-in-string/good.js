@@ -1,3 +1,3 @@
-const foo = 'Hello {bar}'
+/* eslint-disable no-unused-vars */
 
-console.log(foo)
+const foo = 'Hello {bar}'

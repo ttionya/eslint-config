@@ -1,5 +1,5 @@
 // errorCount 1
-/* eslint-disable no-new */
+/* eslint-disable no-unused-vars */
 
 class Foo {
   constructor(bar) {
@@ -9,5 +9,3 @@ class Foo {
     this.bar = bar
   }
 }
-
-new Foo(1)

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 const foo = 0
 
 if (foo) { console.log(foo) } else {
@@ -11,5 +13,3 @@ function bar() { return true }
 function baz() {
   if (foo) return true
 }
-
-console.log(bar, baz)

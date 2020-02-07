@@ -1,4 +1,5 @@
 // errorCount 1
+/* eslint-disable no-unused-vars */
 
 function foo(n) {
   if (n <= 0) {
@@ -7,5 +8,3 @@ function foo(n) {
 
   arguments.callee(n - 1)
 }
-
-foo(1)

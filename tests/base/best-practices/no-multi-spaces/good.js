@@ -1,7 +1,11 @@
+/* eslint-disable no-unused-vars */
+
 const foo = {
   bar:    1,
   bazbaz: 2,
 }
 
-console.log(foo)      // comments
-console.log(foo, foo) // comments
+const bar = {
+  foo: 1,    // comments
+  foofoo: 2, // comments
+}
