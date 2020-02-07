@@ -1,4 +1,5 @@
 // errorCount 1
+/* eslint-disable function-paren-newline */
 
 function foo(a, b, c) {
   console.log(a, b, c)
@@ -6,6 +7,5 @@ function foo(a, b, c) {
 
 foo(
   1,
-  // eslint-disable-next-line function-paren-newline
   2, 3,
 )

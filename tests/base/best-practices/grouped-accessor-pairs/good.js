@@ -5,6 +5,7 @@ const foo = {
   get bar() {
     return this.barValue
   },
+  baz: 1,
 }
 
 console.log(foo)

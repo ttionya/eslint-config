@@ -39,6 +39,172 @@ module.exports = {
 
   rules: {
     /**
+     * setter 必须有对应的 getter，getter 可以没有对应的 setter
+     */
+    'accessor-pairs': [
+      'error',
+      {
+        setWithoutGet: true,
+        getWithoutSet: false,
+      },
+    ],
+
+    /**
+     * 数组的方法除了 forEach 之外，回调函数必须有返回值
+     */
+    'array-callback-return': 'error',
+
+    /**
+     * 强制所有控制语句使用一致的括号风格
+     */
+    curly: ['error', 'multi-line', 'consistent'],
+
+    /**
+     * switch 必须使用 default，即使为空也要有注释
+     */
+    'default-case': 'error',
+
+    /**
+     * 点号之前有一致的换行
+     */
+    'dot-location': ['error', 'property'],
+
+    /**
+     * 必须使用 === 或 !==，禁止使用 == 或 !=，
+     */
+    eqeqeq: ['error', 'always'],
+
+    /**
+     * setter 和 getter 必须写在一起
+     */
+    'grouped-accessor-pairs': 'error',
+
+    /**
+     * 禁止使用 caller 或 callee
+     * @reason 已废弃的语法
+     */
+    'no-caller': 'error',
+
+    /**
+     * 禁止在构造函数中返回值
+     */
+    'no-constructor-return': 'error',
+
+    /**
+     * 禁止使用 foo == null，必须使用 foo === null
+     */
+    'no-eq-null': 'error',
+
+    /**
+     * 禁止使用 eval
+     */
+    'no-eval': 'error',
+
+    /**
+     * 禁止修改原生对象
+     * @reason 修改原生对象可能会与将来版本的 js 冲突
+     */
+    'no-extend-native': 'error',
+
+    /**
+     * 禁止出现没必要的 bind
+     */
+    'no-extra-bind': 'error',
+
+    /**
+     * 禁止数字字面量中使用前导和末尾小数点
+     */
+    'no-floating-decimal': 'error',
+
+    /**
+     * 禁止在 setTimeout 或 setInterval 中传入字符串
+     */
+    'no-implied-eval': 'error',
+
+    /**
+     * 禁止在类之外的地方使用 this
+     * @reason 只允许在 class 中使用 this
+     */
+    'no-invalid-this': 'error',
+
+    /**
+     * 禁止使用 __iterator__
+     * @reason __iterator__ 是一个已废弃的属性，使用 [Symbol.iterator] 替代
+     */
+    'no-iterator': 'error',
+
+    /**
+     * 禁止使用 label
+     */
+    'no-labels': 'error',
+
+    /**
+     * 禁止使用没必要的 {} 作为代码块
+     */
+    'no-lone-blocks': 'error',
+
+    /**
+     * 禁止使用多个空格
+     */
+    'no-multi-spaces': [
+      'error',
+      {
+        ignoreEOLComments: true,
+        exceptions: {
+          Property: true,
+        },
+      },
+    ],
+
+    /**
+     * 禁止使用 \ 来换行字符串
+     */
+    'no-multi-str': 'error',
+
+    /**
+     * 禁止直接 new 一个类而不赋值
+     * @reason new 应该作为创建一个类的实例的方法，所以不能不赋值
+     */
+    'no-new': 'error',
+
+    /**
+     * 禁止使用 new Function
+     * @reason 这和 eval 是等价的
+     */
+    'no-new-func': 'error',
+
+    /**
+     * 禁止使用 new 来生成 String, Number 或 Boolean
+     */
+    'no-new-wrappers': 'error',
+
+    /**
+     * 禁止对函数的参数重新赋值
+     */
+    'no-param-reassign': [
+      'error',
+      {
+        props: false,
+      },
+    ],
+
+    /**
+     * 禁止使用 __proto__
+     * @reason __proto__ 是已废弃的语法
+     */
+    'no-proto': 'error',
+
+    /**
+     * 禁止在 return 语句里赋值
+     */
+    'no-return-assign': ['error', 'always'],
+
+    /**
+     * 禁止在 return 语句里使用 await
+     */
+    'no-return-await': 'error',
+
+    /**
      * 禁止直接使用 Buffer 构造函数
      * @reason Buffer 已被废弃，使用其方法代替
      */

@@ -22,20 +22,6 @@ function externalRules() {
     /**
      * ECMAScript 6
      */
-    // 强制所有控制语句使用一致的括号风格
-    'curly': ['error', 'multi-line'], // all
-    // 要求使用 === 和 !==
-    'eqeqeq': ['error', 'smart'],
-    // 禁止 if 语句中 return 语句之后有 else 块
-    'no-else-return': 'error',
-    // 禁用 eval()
-    'no-eval': 'error',
-    // 禁止使用多个空格
-    'no-multi-spaces': ['error', {
-      ignoreEOLComments: true,
-    }],
-    // 禁用不必要的 return await
-    'no-return-await': 'error',
     // 禁止多余的 return 语句
     'no-useless-return':'error',
 

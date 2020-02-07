@@ -1,0 +1,11 @@
+// errorCount 1
+
+function foo(n) {
+  if (n <= 0) {
+    return
+  }
+
+  arguments.callee(n - 1)
+}
+
+foo(1)

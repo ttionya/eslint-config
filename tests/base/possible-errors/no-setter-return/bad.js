@@ -5,6 +5,9 @@ const foo = {
     this.barValue = 'bar ' + value
     return this.barValue
   },
+  get bar() {
+    return this.barValue
+  },
 }
 
 console.log(foo)

@@ -6,5 +6,10 @@ const foo = {
     return this.barValue
   },
 }
+const bar = {
+  get foo() {
+    return this.fooValue
+  },
+}
 
-console.log(foo)
+console.log(foo, bar)
