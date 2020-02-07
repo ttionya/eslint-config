@@ -20,12 +20,6 @@ function externalRules() {
   return {
 
     /**
-     * ECMAScript 6
-     */
-    // 禁止多余的 return 语句
-    'no-useless-return':'error',
-
-    /**
      * Stylistic Issues
      */
     // 强制隐式返回的箭头函数体的位置

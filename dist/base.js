@@ -205,6 +205,59 @@ module.exports = {
     'no-return-await': 'error',
 
     /**
+     * 禁止将自己与自己比较
+     */
+    'no-self-compare': 'error',
+
+    /**
+     * 禁止 throw 字面量，必须 throw 一个 Error 对象
+     */
+    'no-throw-literal': 'error',
+
+    /**
+     * 禁止无用的表达式
+     */
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: true,
+        allowTaggedTemplates: true,
+      },
+    ],
+
+    /**
+     * 禁止出现没必要的 call 或 apply
+     */
+    'no-useless-call': 'error',
+
+    /**
+     * 禁止出现没必要的字符串连接
+     */
+    'no-useless-concat': 'error',
+
+    /**
+     * 禁止没必要的 return
+     */
+    'no-useless-return': 'error',
+
+    /**
+     * 禁止使用 void
+     */
+    'no-void': 'error',
+
+    /**
+     * 必须使用 if (foo === 5) 而不是 if (5 === foo)
+     */
+    yoda: [
+      'error',
+      'never',
+      {
+        onlyEquality: true,
+      },
+    ],
+
+    /**
      * 禁止直接使用 Buffer 构造函数
      * @reason Buffer 已被废弃，使用其方法代替
      */
