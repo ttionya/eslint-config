@@ -135,7 +135,9 @@ class Generator {
 
     this.ruleNamespace = ruleNamespace
     this.ruleList = this.getRuleList()
-    this.ruleList.forEach(({ name, value }) => rules[name] = value)
+    this.ruleList.forEach(({ name, value }) => {
+      rules[name] = value
+    })
 
     return rules
   }
