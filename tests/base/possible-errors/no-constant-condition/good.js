@@ -1,6 +1,6 @@
 const foo = 0
 
-for (; true; ) {
+for (; true;) {
   if (foo === 0) {
     break
   }

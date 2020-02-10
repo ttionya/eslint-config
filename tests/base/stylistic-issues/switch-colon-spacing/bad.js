@@ -1,0 +1,9 @@
+// errorCount 4
+
+switch (typeof String) {
+  case 'bigint' :break
+  case 'boolean' :
+    break
+  default :
+  // no default
+}

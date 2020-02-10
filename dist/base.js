@@ -423,6 +423,242 @@ module.exports = {
     'function-paren-newline': ['error', 'multiline-arguments'],
 
     /**
+     * 隐式返回的箭头函数体需写在一行
+     */
+    'implicit-arrow-linebreak': ['error', 'beside'],
+
+    /**
+     * 在 JSX 属性中使用双引号
+     */
+    'jsx-quotes': ['error', 'prefer-double'],
+
+    /**
+     * 在对象字面量的属性中键和值之间使用空格
+     */
+    'key-spacing': [
+      'error',
+      {
+        beforeColon: false,
+        afterColon: true,
+        mode: 'minimum',
+      },
+    ],
+
+    /**
+     * 关键字周围需要空格
+     */
+    'keyword-spacing': [
+      'error',
+      {
+        before: true,
+        after: true,
+      },
+    ],
+
+    /**
+     * 换行使用 LF 而不是 CRLF
+     */
+    'linebreak-style': ['error', 'unix'],
+
+    /**
+     * 块级注释之前需要空行
+     */
+    'lines-around-comment': [
+      'error',
+      {
+        beforeBlockComment: true,
+      },
+    ],
+
+    /**
+     * 类的成员之间需要空行
+     */
+    'lines-between-class-members': ['error', 'always'],
+
+    /**
+     * new 后面的类名必须首字母大写
+     */
+    'new-cap': [
+      'error',
+      {
+        newIsCap: true,
+        capIsNew: false,
+        properties: true,
+      },
+    ],
+
+    /**
+     * 调用 class 必须添加括号
+     */
+    'new-parens': ['error', 'always'],
+
+    /**
+     * 禁止使用 Array 构造函数时传入的参数超过一个
+     * @reason 参数为一个时表示创建一个指定长度的数组，比较常用
+     * 参数为多个时表示创建一个指定内容的数组，此时可以用数组字面量实现，不必使用构造函数
+     */
+    'no-array-constructor': 'error',
+
+    /**
+     * 禁止大于连续两个空行
+     */
+    'no-multiple-empty-lines': [
+      'error',
+      {
+        max: 2,
+      },
+    ],
+
+    /**
+     * 禁止直接 new Object
+     */
+    'no-new-object': 'error',
+
+    /**
+     * 禁止尾空格
+     */
+    'no-trailing-spaces': 'error',
+
+    /**
+     * 禁止属性前有空格
+     */
+    'no-whitespace-before-property': 'error',
+
+    /**
+     * 对象中换行保持一致性
+     */
+    'object-curly-newline': [
+      'error',
+      {
+        multiline: true,
+        consistent: true,
+      },
+    ],
+
+    /**
+     * 对象中空格保持一致性
+     */
+    'object-curly-spacing': [
+      'error',
+      'always',
+      {
+        arraysInObjects: true,
+        objectsInObjects: true,
+      },
+    ],
+
+    /**
+     * 对象的属性放在不同的行上或只放到一行上
+     */
+    'object-property-newline': [
+      'error',
+      {
+        allowAllPropertiesOnSameLine: true,
+      },
+    ],
+
+    /**
+     * 禁止变量申明时用逗号一次申明多个
+     */
+    'one-var': ['error', 'never'],
+
+    /**
+     * 所有换行的操作符需要将操作符放在前面
+     */
+    'operator-linebreak': ['error', 'before'],
+
+    /**
+     * 必须使用 ... 而不是 Object.assign，除非 Object.assign 的第一个参数是一个变量
+     */
+    'prefer-object-spread': 'error',
+
+    /**
+     * 要求使用单引号，但是也可以直接使用反引号
+     */
+    quotes: [
+      'error',
+      'single',
+      {
+        allowTemplateLiterals: true,
+      },
+    ],
+
+    /**
+     * 不使用分号
+     */
+    semi: ['error', 'never'],
+
+    /**
+     * 分号后需要有空格
+     */
+    'semi-spacing': [
+      'error',
+      {
+        before: false,
+        after: true,
+      },
+    ],
+
+    /**
+     * 必须加分号时，加在末尾
+     */
+    'semi-style': ['error', 'last'],
+
+    /**
+     * 语句块之间必须有空格
+     */
+    'space-before-blocks': ['error', 'always'],
+
+    /**
+     * function 的左括号之前使用空格，除非是命名函数
+     */
+    'space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'always',
+        named: 'never',
+        asyncArrow: 'always',
+      },
+    ],
+
+    /**
+     * 圆括号附近不使用空格
+     */
+    'space-in-parens': ['error', 'never'],
+
+    /**
+     * 操作符附近使用空格
+     */
+    'space-infix-ops': 'error',
+
+    /**
+     * 一元操作符附近，关键字需要空格，符号不需要空格
+     */
+    'space-unary-ops': [
+      'error',
+      {
+        words: true,
+        nonwords: false,
+      },
+    ],
+
+    /**
+     * 规范注释空格
+     */
+    'spaced-comment': ['error', 'always'],
+
+    /**
+     * switch 冒号周围需要空格
+     */
+    'switch-colon-spacing': [
+      'error',
+      {
+        before: false,
+        after: true,
+      },
+    ],
+
+    /**
      * 禁止将 undefined 赋值给变量
      */
     'no-undef-init': 'error',
