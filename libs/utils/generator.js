@@ -1,14 +1,16 @@
 const path = require('path')
 const { readFileSync, writeFileSync, lstatSync } = require('fs')
 const { sync: globSync } = require('glob')
+const { sync: cpFileSync } = require('cp-file')
 const prettier = require('prettier')
 const eslintrcMeta = require('./meta')
 
 const root = path.join(__dirname, '../..')
+const dist = 'dist'
 
 class Generator {
   constructor() {
-    this.dist = path.join(root, 'dist')
+    this.dist = path.join(root, dist)
     this.ruleNamespace = ''
     this.ruleList = []
     this.rulesContent = ''
@@ -32,6 +34,8 @@ class Generator {
     const content = eslintrcMeta + this.eslintrcContent.replace(/rules:\s*\{}/, `rules: { ${this.rulesContent} }`)
 
     this.writeFileWithPrettier(content)
+
+    this.copyDistToRoot()
   }
 
   /**
@@ -119,6 +123,17 @@ class Generator {
     })
 
     writeFileSync(path.join(this.dist, `${this.ruleNamespace}.js`), formattedContent, 'utf-8')
+  }
+
+  /**
+   * 复制一份生成的规则到根目录，以便调试
+   * @private
+   */
+  copyDistToRoot() {
+    const distFiles = globSync(path.join(this.dist, '*.js'))
+    distFiles.forEach((file) => {
+      cpFileSync(file, file.replace(dist, ''))
+    })
   }
 
   /**

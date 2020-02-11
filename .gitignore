@@ -10,3 +10,7 @@
 
 # NodeJS
 node_modules
+
+# Root Dist
+base.js
+babel.js
