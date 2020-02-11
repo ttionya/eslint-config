@@ -11,14 +11,15 @@ branches:
     - master
     - /^v\d+\.\d+\.\d+.*$/
 
+before_install:
+  - npm link
+
 install:
   - npm ci
+  - npm link @ttionya/eslint-config
 
 script:
   - npm run test
-
-before_deploy:
-  - cp ./dist/* .
 
 deploy:
   - provider: npm
