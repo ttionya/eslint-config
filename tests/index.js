@@ -26,6 +26,7 @@ namespace.forEach((namespace) => {
   const cli = new CLIEngine({
     configFile: path.join(root, 'dist', `${namespace}.js`),
     ignore: false,
+    useEslintrc: false,
   })
 
   describe(namespace, () => {

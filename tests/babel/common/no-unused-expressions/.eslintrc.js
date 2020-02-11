@@ -1,11 +1,10 @@
 module.exports = {
   rules: {
 
-    'no-unused-expressions': 'off',
-
     /**
      * babel
      * 禁止无用的表达式
+     * @reason 关闭 eslint 使用 babel
      */
     'babel/no-unused-expressions': [
       'error',
@@ -15,5 +14,7 @@ module.exports = {
         allowTaggedTemplates: true,
       },
     ],
+
+    'no-unused-expressions': 'off',
   },
 }

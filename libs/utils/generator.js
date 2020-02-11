@@ -54,39 +54,41 @@ class Generator {
       .map((rulePath) => {
         return this.getRule(rulePath)
       })
+      .reduce((last, current) => last.concat(current), [])
   }
 
   /**
-   * 获得单条规则
+   * 获得单条规则的规则集合
    * @param {string} rulePath 规则文件夹的绝对路径
-   * @return {Rule}
+   * @return {Rule[]}
    * @private
    */
   getRule(rulePath) {
     const ruleConfig = require(`${rulePath}/.eslintrc.js`).rules
-    const ruleName = Object.keys(ruleConfig)[0]
-    const ruleValue = ruleConfig[ruleName]
-
-    /**
-     * @name Rule
-     * @property {string} name
-     * @property {string|Array} value
-     * @property {string} comments
-     */
-    const rule = {
-      name: ruleName,
-      value: ruleValue,
-      comments: '',
-    }
+    let ruleComment = ''
 
     // 规则注释
     const fileContent = readFileSync(path.join(rulePath, '.eslintrc.js'), 'utf-8')
     const ruleComments = /\/\*\*.*\*\//gms.exec(fileContent)
     if (ruleComments) {
-      rule.comments = ruleComments[0]
+      ruleComment = ruleComments[0]
     }
 
-    return rule
+    // 规则集合
+    return Object.entries(ruleConfig).map(([ruleName, ruleValue]) => {
+
+      /**
+       * @name Rule
+       * @property {string} name
+       * @property {string|Array} value
+       * @property {string} comments
+       */
+      return {
+        name: ruleName,
+        value: ruleValue,
+        comments: ruleComment,
+      }
+    })
   }
 
   /**
