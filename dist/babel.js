@@ -3,7 +3,7 @@
  * https://github.com/ttionya/eslint-config
  *
  * Author: ttionya <my@ttionya.com>
- * Version: 0.3.0
+ * Version: 0.3.1
  *
  * 此文件是由脚本 scripts/build.js 自动生成
  */
