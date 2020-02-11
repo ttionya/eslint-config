@@ -258,6 +258,89 @@ module.exports = {
     ],
 
     /**
+     * 箭头函数的参数必须使用圆括号
+     */
+    'arrow-parens': ['error', 'always'],
+
+    /**
+     * 箭头函数箭头周围需要空格
+     */
+    'arrow-spacing': [
+      'error',
+      {
+        before: true,
+        after: true,
+      },
+    ],
+
+    /**
+     * Generator * 靠近名称一侧
+     */
+    'generator-star-spacing': [
+      'error',
+      {
+        before: true,
+        after: false,
+      },
+    ],
+
+    /**
+     * 防止箭头函数的箭头混淆代码，需要使用圆括号包裹代码
+     */
+    'no-confusing-arrow': [
+      'error',
+      {
+        allowParens: true,
+      },
+    ],
+
+    /**
+     * 禁止重复导入模块
+     */
+    'no-duplicate-imports': 'error',
+
+    /**
+     * 禁止出现没必要的计算键名
+     */
+    'no-useless-computed-key': 'error',
+
+    /**
+     * 禁止出现没必要的 constructor
+     */
+    'no-useless-constructor': 'error',
+
+    /**
+     * 禁止解构赋值时出现同样名字的的重命名，比如 let { foo: foo } = bar
+     */
+    'no-useless-rename': 'error',
+
+    /**
+     * 禁止使用 var
+     */
+    'no-var': 'error',
+
+    /**
+     * ... 展开符与变量名之间不允许空格
+     */
+    'rest-spread-spacing': ['error', 'never'],
+
+    /**
+     * 创建 Symbol 时必须传入参数
+     */
+    'symbol-description': 'error',
+
+    /**
+     * yield * 靠近函数一侧
+     */
+    'yield-star-spacing': [
+      'error',
+      {
+        before: true,
+        after: false,
+      },
+    ],
+
+    /**
      * 禁止直接使用 Buffer 构造函数
      * @reason Buffer 已被废弃，使用其方法代替
      */

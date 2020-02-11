@@ -3,14 +3,13 @@
 class Foo {
   constructor() {
     console.log(1)
-    // do something
   }
+}
 
-  bar() {
-    // do something
-  }
+class Bar extends Foo {
+  constructor(...args) {
+    super(...args)
 
-  baz() {
-    // do something
+    console.log(1)
   }
 }

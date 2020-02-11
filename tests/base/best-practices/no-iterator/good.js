@@ -1,6 +1,6 @@
 const foo = {}
 
-foo[Symbol.iterator] = function*() {
+foo[Symbol.iterator] = function *() {
   yield 1
   yield 2
   yield 3

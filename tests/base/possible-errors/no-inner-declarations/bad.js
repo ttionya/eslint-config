@@ -1,5 +1,5 @@
 // errorCount 2
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars, no-var */
 
 const foo = 1
 

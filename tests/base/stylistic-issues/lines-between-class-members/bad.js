@@ -3,6 +3,7 @@
 
 class Foo {
   constructor() {
+    console.log(1)
     // do something
   }
   bar() {
