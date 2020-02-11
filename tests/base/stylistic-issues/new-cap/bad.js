@@ -1,9 +1,10 @@
 // errorCount 2
 /* eslint-disable no-new */
 
-const foo = {
-  Bar() {},
+const foo = () => {}
+const bar = {
+  bar() {},
 }
 
 new foo()
-new foo.bar()
+new bar.bar()
