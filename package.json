@@ -12,7 +12,8 @@
   "main": "base.js",
   "files": [
     "base.js",
-    "babel.js"
+    "babel.js",
+    "typescript.js"
   ],
   "homepage": "https://github.com/ttionya/eslint-config",
   "repository": {
@@ -24,13 +25,15 @@
   },
   "scripts": {
     "build": "node scripts/build.js",
-    "lint": "eslint --fix -f table .",
+    "lint": "eslint --ext .js,.ts --fix -f table .",
     "test": "npm run build && mocha tests"
   },
   "dependencies": {
     "eslint": "^6.8.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.22.0",
+    "@typescript-eslint/parser": "^2.22.0",
     "babel-eslint": "^10.0.3",
     "chai": "^4.2.0",
     "cp-file": "^7.0.0",
@@ -41,7 +44,8 @@
     "mkdirp": "^1.0.3",
     "mocha": "^7.0.1",
     "prettier": "^1.19.1",
-    "rimraf": "^3.0.1"
+    "rimraf": "^3.0.1",
+    "typescript": "^3.8.3"
   },
   "publishConfig": {
     "access": "public"
@@ -54,7 +58,7 @@
   },
   "lint-staged": {
     "**/*.{js,vue,ts}": [
-      "eslint --fix"
+      "eslint --ext .js,.ts --fix"
     ]
   }
 }
