@@ -4,11 +4,11 @@ module.exports = {
     /**
      * 禁止使用类似 eval 的写法
      * @category TypeScript
-     * @reason requires types information 报错
+     * @reason 关闭 Base 使用 TypeScript
      * @requires-types-information
-     *
-     * @configure 'error'
      */
-    '@typescript-eslint/no-implied-eval': 'off',
+    '@typescript-eslint/no-implied-eval': 'error',
+
+    'no-implied-eval': 'off',
   },
 }

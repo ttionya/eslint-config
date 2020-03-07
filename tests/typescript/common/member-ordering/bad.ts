@@ -1,6 +1,8 @@
 // errorCount 12
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+export default 1
+
 class Foo {
   private getBar3(): string {
     return this.bar3

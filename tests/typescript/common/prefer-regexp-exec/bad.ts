@@ -1,1 +1,3 @@
-// errorCount 0
+// errorCount 1
+
+'123'.match(/.*/)

@@ -4,9 +4,14 @@ module.exports = {
     /**
      * 避免错误的使用 Promise
      * @category TypeScript
-     * @reason requires types information 报错
      * @requires-types-information
      */
-    '@typescript-eslint/no-misused-promises': 'off',
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksConditionals: true,
+        checksVoidReturn: true,
+      },
+    ],
   },
 }
