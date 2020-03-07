@@ -3,6 +3,7 @@ module.exports = {
 
     /**
      * 禁止在 setTimeout 或 setInterval 中传入字符串
+     * @category Base
      */
     'no-implied-eval': 'error',
   },

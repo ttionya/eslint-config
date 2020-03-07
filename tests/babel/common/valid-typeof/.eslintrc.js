@@ -2,9 +2,9 @@ module.exports = {
   rules: {
 
     /**
-     * babel
      * 使用合法的 typeof 值
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
      */
     'babel/valid-typeof': 'error',
 

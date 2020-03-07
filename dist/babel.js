@@ -25,9 +25,9 @@ module.exports = {
 
   rules: {
     /**
-     * babel
      * new 后面的类名必须首字母大写
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
      */
     'babel/new-cap': [
       'error',
@@ -39,32 +39,32 @@ module.exports = {
     ],
 
     /**
-     * babel
      * new 后面的类名必须首字母大写
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
      */
     'new-cap': 'off',
 
     /**
-     * babel
      * 禁止在类之外的地方使用 this
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
      * @reason 只允许在 class 中使用 this
-     * @reason 关闭 eslint 使用 babel
      */
     'babel/no-invalid-this': 'error',
 
     /**
-     * babel
      * 禁止在类之外的地方使用 this
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
      * @reason 只允许在 class 中使用 this
-     * @reason 关闭 eslint 使用 babel
      */
     'no-invalid-this': 'off',
 
     /**
-     * babel
      * 禁止无用的表达式
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
      */
     'babel/no-unused-expressions': [
       'error',
@@ -76,16 +76,17 @@ module.exports = {
     ],
 
     /**
-     * babel
      * 禁止无用的表达式
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
      */
     'no-unused-expressions': 'off',
 
     /**
-     * babel
      * 对象中空格保持一致性
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
+     * @fixable
      */
     'babel/object-curly-spacing': [
       'error',
@@ -97,16 +98,17 @@ module.exports = {
     ],
 
     /**
-     * babel
      * 对象中空格保持一致性
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
+     * @fixable
      */
     'object-curly-spacing': 'off',
 
     /**
-     * babel
      * 要求使用单引号，但是也可以直接使用反引号
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
      */
     'babel/quotes': [
       'error',
@@ -117,37 +119,39 @@ module.exports = {
     ],
 
     /**
-     * babel
      * 要求使用单引号，但是也可以直接使用反引号
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
      */
     quotes: 'off',
 
     /**
-     * babel
      * 不使用分号
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
+     * @fixable
      */
     'babel/semi': ['error', 'never'],
 
     /**
-     * babel
      * 不使用分号
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
+     * @fixable
      */
     semi: 'off',
 
     /**
-     * babel
      * 使用合法的 typeof 值
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
      */
     'babel/valid-typeof': 'error',
 
     /**
-     * babel
      * 使用合法的 typeof 值
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
      */
     'valid-typeof': 'off',
   },

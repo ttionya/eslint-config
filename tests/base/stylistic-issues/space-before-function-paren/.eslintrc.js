@@ -3,6 +3,8 @@ module.exports = {
 
     /**
      * function 的左括号之前使用空格，除非是命名函数
+     * @category Base
+     * @fixable
      */
     'space-before-function-paren': [
       'error',

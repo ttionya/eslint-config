@@ -3,6 +3,7 @@ module.exports = {
 
     /**
      * 禁止无用的表达式
+     * @category Base
      */
     'no-unused-expressions': [
       'error',

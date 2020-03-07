@@ -2,9 +2,10 @@ module.exports = {
   rules: {
 
     /**
-     * babel
      * 不使用分号
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
+     * @fixable
      */
     'babel/semi': ['error', 'never'],
 

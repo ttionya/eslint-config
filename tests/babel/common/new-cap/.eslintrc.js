@@ -2,9 +2,9 @@ module.exports = {
   rules: {
 
     /**
-     * babel
      * new 后面的类名必须首字母大写
-     * @reason 关闭 eslint 使用 babel
+     * @category Babel
+     * @reason 关闭 Base 使用 Babel
      */
     'babel/new-cap': [
       'error',

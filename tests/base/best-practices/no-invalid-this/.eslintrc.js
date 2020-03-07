@@ -3,6 +3,7 @@ module.exports = {
 
     /**
      * 禁止在类之外的地方使用 this
+     * @category Base
      * @reason 只允许在 class 中使用 this
      */
     'no-invalid-this': 'error',

@@ -3,6 +3,7 @@ module.exports = {
 
     /**
      * 禁止直接 new Object
+     * @category Base
      */
     'no-new-object': 'error',
   },

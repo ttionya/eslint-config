@@ -3,6 +3,7 @@ module.exports = {
 
     /**
      * new 后面的类名必须首字母大写
+     * @category Base
      */
     'new-cap': [
       'error',
