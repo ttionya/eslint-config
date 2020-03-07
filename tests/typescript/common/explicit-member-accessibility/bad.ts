@@ -4,7 +4,13 @@
 export default 1
 
 class Animal {
-  public constructor(public animalName: string, age: number) {
+  legs: number
+
+  hasFleas: boolean
+
+  animalName: string
+
+  public constructor(animalName: string, age: number) {
     this.hasFleas = false
   }
 
@@ -19,8 +25,4 @@ class Animal {
   drink(): void {
     // do something
   }
-
-  legs: number
-
-  hasFleas: boolean
 }

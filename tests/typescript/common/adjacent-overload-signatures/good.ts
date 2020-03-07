@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars, @typescript-eslint/consistent-type-definitions */
+/* eslint-disable @typescript-eslint/consistent-type-definitions, @typescript-eslint/unified-signatures */
 
 declare namespace INSFoo {
   export function foo(s: string): void

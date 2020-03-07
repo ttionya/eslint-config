@@ -3,7 +3,13 @@
 export default 1
 
 class Animal {
-  constructor(private animalName: string) {
+  legs: number
+
+  private hasFleas: boolean
+
+  private animalName: string
+
+  constructor(animalName: string) {
     this.hasFleas = false
   }
 
@@ -18,8 +24,4 @@ class Animal {
   public drink(): void {
     // do something
   }
-
-  legs: number
-
-  private hasFleas: boolean
 }
