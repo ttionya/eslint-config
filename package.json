@@ -1,6 +1,6 @@
 {
   "name": "@ttionya/eslint-config",
-  "version": "0.3.2",
+  "version": "1.0.0",
   "description": "ESLint 规则",
   "author": "ttionya <my@ttionya.com>",
   "license": "MIT",
