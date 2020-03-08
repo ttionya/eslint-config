@@ -8,6 +8,7 @@
 
 - [Base](#base)
 - [Babel](#babel)
+- [TypeScript](#typescript)
 
 ## 使用方法
 
@@ -46,6 +47,47 @@ module.exports = {
 }
 ```
 
+### TypeScript
+
+TypeScript 基础规则。
+
+```bash
+npm i -D eslint \
+         typescript \
+         @typescript-eslint/parser \
+         @typescript-eslint/eslint-plugin \
+         @ttionya/eslint-config
+```
+
+```js
+/* .eslintrc.js */
+
+module.exports = {
+  extends: [
+    '@ttionya/eslint-config/base',
+    '@ttionya/eslint-config/typescript',
+  ],
+
+  parserOptions: {
+    project: ['./tsconfig.json'],
+    tsconfigRootDir: __dirname,
+  },
+
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        // 自定义 @typescript-eslint/ 规则
+      },
+    },
+  ],
+
+  rules: {
+    // 自定义 eslint 规则
+  },
+}
+```
+
 ## FAQ
 
 ### 为什么还包含了样式相关的规则而没有交由 Prettier 处理？
@@ -57,6 +99,9 @@ module.exports = {
 ## 参考
 
 - [eslint-config-alloy](https://github.com/AlloyTeam/eslint-config-alloy)
+- [eslint-plugin-babel](https://github.com/babel/eslint-plugin-babel)
+- [@typescript-eslint/typescript-eslint](https://github.com/typescript-eslint/typescript-eslint)
+- [@typescript-eslint/eslint-plugin](https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/README.md)
 
 ## License
 
