@@ -70,7 +70,6 @@ class Generator {
 
     return ruleList
       .filter((rulePath) => {
-        // 存在新建时项目 eslint 报错的情况
         return lstatSync(rulePath).isDirectory()
       })
       .map((rulePath) => {
