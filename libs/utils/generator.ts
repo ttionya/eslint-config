@@ -1,26 +1,35 @@
-const path = require('path')
-const { readFileSync, writeFileSync, lstatSync } = require('fs')
-const { sync: globSync } = require('glob')
-const { sync: cpFileSync } = require('cp-file')
-const prettier = require('prettier')
-const eslintrcMeta = require('./meta')
+import path from 'path'
+import { readFileSync, writeFileSync, lstatSync } from 'fs'
+import { sync as globSync } from 'glob'
+import { sync as cpFileSync } from 'cp-file'
+import prettier from 'prettier'
+import eslintrcMeta from './meta'
+import { IRule } from '../../typings'
 
 const root = path.join(__dirname, '../..')
 const dist = 'dist'
 
 class Generator {
-  constructor() {
-    this.dist = path.join(root, dist)
-    this.ruleNamespace = ''
-    this.ruleList = []
-    this.rulesContent = ''
-  }
+  // 配置文件输出目录
+  public dist = path.join(root, dist)
+
+  // 当前规则 namespace
+  private ruleNamespace = 'babel'
+
+  // 当前 namespace 的规则列表
+  private ruleList: IRule[] = []
+
+  // 当前 namespace 的模板文本
+  private eslintrcContent = ''
+
+  // 当前 namespace 的所有规则合并后的包含注释的文本
+  private rulesContent = ''
 
   /**
-   * 生成配置文件到 dist 目录
+   * 生成配置文件到 dist 目录和根目录
    * @param {string} ruleNamespace
    */
-  generateToDist(ruleNamespace) {
+  public generateToDist(ruleNamespace: string): void {
     if (!ruleNamespace) {
       throw Error('必须传入配置命名空间')
     }
@@ -33,17 +42,30 @@ class Generator {
 
     const content = eslintrcMeta + this.eslintrcContent.replace(/rules:\s*\{}/, `rules: { ${this.rulesContent} }`)
 
+    // 使用 prettier 格式化并写入文件
     this.writeFileWithPrettier(content)
 
+    // 拷贝 dist 到根目录
     this.copyDistToRoot()
   }
 
   /**
-   * 获得当前配置的规则列表
-   * @return {Rule[]}
+   * 获得 .eslintrc 模板文本
+   * @return {string}
    * @private
    */
-  getRuleList() {
+  private getEslintrcContent(): string {
+    const initEslintrc = path.join(root, 'tests', this.ruleNamespace, 'index.js')
+
+    return readFileSync(initEslintrc, 'utf-8')
+  }
+
+  /**
+   * 获得当前配置的规则列表
+   * @return {IRule[]}
+   * @private
+   */
+  private getRuleList(): IRule[] {
     const ruleList = globSync(path.join(root, `tests/${this.ruleNamespace}/[a-z]*/*`))
 
     return ruleList
@@ -54,16 +76,19 @@ class Generator {
       .map((rulePath) => {
         return this.getRule(rulePath)
       })
-      .reduce((last, current) => last.concat(current), [])
+      .reduce((last, current) => {
+        return last.concat(current)
+      }, [])
   }
 
   /**
    * 获得单条规则的规则集合
    * @param {string} rulePath 规则文件夹的绝对路径
-   * @return {Rule[]}
+   * @return {IRule[]}
    * @private
    */
-  getRule(rulePath) {
+  private getRule(rulePath: string): IRule[] {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const ruleConfig = require(`${rulePath}/.eslintrc.js`).rules
     let ruleComment = ''
 
@@ -75,31 +100,15 @@ class Generator {
     }
 
     // 规则集合
-    return Object.entries(ruleConfig).map(([ruleName, ruleValue]) => {
-
-      /**
-       * @name Rule
-       * @property {string} name
-       * @property {string|Array} value
-       * @property {string} comments
-       */
-      return {
-        name: ruleName,
-        value: ruleValue,
-        comments: ruleComment,
-      }
+    return Object
+      .entries(ruleConfig)
+      .map(([ruleName, ruleValue]) => {
+        return {
+          name: ruleName,
+          value: ruleValue,
+          comments: ruleComment,
+        }
     })
-  }
-
-  /**
-   * 获得 .eslintrc 模板文本
-   * @return {string}
-   * @private
-   */
-  getEslintrcContent() {
-    const initEslintrc = path.join(root, 'tests', this.ruleNamespace, 'index.js')
-
-    return readFileSync(initEslintrc, 'utf-8')
   }
 
   /**
@@ -107,19 +116,20 @@ class Generator {
    * @return {string}
    * @private
    */
-  getRulesContent() {
+  private getRulesContent(): string {
     return this.ruleList
       .map((rule) => `\n\n${rule.comments}\n'${rule.name}': ${JSON.stringify(rule.value, null, 4)},`)
       .join('')
   }
 
   /**
-   * 写入文件并使用 prettier 格式化
+   * 使用 prettier 格式化并写入文件
    * @param {string} content
    * @private
    */
-  writeFileWithPrettier(content) {
+  private writeFileWithPrettier(content: string): void {
     const formattedContent = prettier.format(content, {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
       ...require(`${root}/.prettierrc.js`),
       parser: 'babel',
     })
@@ -131,33 +141,12 @@ class Generator {
    * 复制一份生成的规则到根目录，以便调试
    * @private
    */
-  copyDistToRoot() {
+  private copyDistToRoot(): void {
     const distFiles = globSync(path.join(this.dist, '*.js'))
     distFiles.forEach((file) => {
       cpFileSync(file, file.replace(dist, ''))
     })
   }
-
-  /**
-   * 生成 eslintrc 规则
-   * @param {string} ruleNamespace
-   * @return {object}
-   */
-  generateEslintrcRules(ruleNamespace) {
-    if (!ruleNamespace) {
-      throw Error('必须传入配置命名空间')
-    }
-
-    const rules = {}
-
-    this.ruleNamespace = ruleNamespace
-    this.ruleList = this.getRuleList()
-    this.ruleList.forEach(({ name, value }) => {
-      rules[name] = value
-    })
-
-    return rules
-  }
 }
 
-module.exports = Generator
+export default Generator

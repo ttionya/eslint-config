@@ -24,28 +24,38 @@
     "url": "https://github.com/ttionya/eslint-config/issues"
   },
   "scripts": {
-    "build": "node scripts/build.js",
+    "build": "ts-node scripts/build.ts",
     "lint": "eslint --ext .js,.ts --fix -f table .",
-    "test": "npm run build && mocha tests"
+    "test": "npm run build && mocha --require ts-node/register tests/index.ts"
   },
   "dependencies": {
     "eslint": "^6.8.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.0",
+    "@types/cp-file": "^6.1.0",
+    "@types/eslint": "^6.1.0",
+    "@types/glob": "^7.1.0",
+    "@types/mkdirp": "^1.0.0",
+    "@types/mocha": "^7.0.0",
+    "@types/node": "^13.9.0",
+    "@types/prettier": "^1.19.0",
+    "@types/rimraf": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^2.22.0",
     "@typescript-eslint/parser": "^2.22.0",
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.0.0",
     "chai": "^4.2.0",
     "cp-file": "^7.0.0",
     "eslint-plugin-babel": "^5.3.0",
-    "glob": "^7.1.6",
-    "husky": "^4.2.1",
-    "lint-staged": "^10.0.7",
+    "glob": "^7.1.0",
+    "husky": "^4.2.0",
+    "lint-staged": "^10.0.0",
     "mkdirp": "^1.0.3",
-    "mocha": "^7.0.1",
-    "prettier": "^1.19.1",
-    "rimraf": "^3.0.1",
-    "typescript": "^3.8.3"
+    "mocha": "^7.0.0",
+    "prettier": "^1.19.0",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.6.0",
+    "typescript": "^3.8.0"
   },
   "publishConfig": {
     "access": "public"

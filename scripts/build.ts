@@ -1,7 +1,7 @@
-const { sync: rimrafSync } = require('rimraf')
-const { sync: mkdirpSync } = require('mkdirp')
-const { namespace } = require('../libs/namespace')
-const Generator = require('../libs/utils/generator')
+import { sync as rimrafSync } from 'rimraf'
+import { sync as mkdirpSync } from 'mkdirp'
+import { namespace } from '../libs/namespace'
+import Generator from '../libs/utils/generator'
 
 const generator = new Generator()
 
