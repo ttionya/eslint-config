@@ -26,7 +26,8 @@
   "scripts": {
     "build": "ts-node scripts/build.ts",
     "lint": "eslint --ext .js,.ts --fix -f table .",
-    "test": "npm run build && mocha --require ts-node/register tests/index.ts"
+    "mocha": "mocha --require ts-node/register tests/index.ts",
+    "test": "npm run build && npm run mocha"
   },
   "dependencies": {
     "eslint": "^6.8.0"

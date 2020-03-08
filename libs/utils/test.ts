@@ -1,20 +1,21 @@
-const path = require('path')
-const { readFileSync } = require('fs')
-const { assert } = require('chai')
-const { sync: globSync } = require('glob')
-const { namespace } = require('../namespace')
+import path from 'path'
+import { readFileSync } from 'fs'
+import { assert } from 'chai'
+import { sync as globSync } from 'glob'
+import { CLIEngine } from 'eslint'
+import { namespace } from '../namespace'
 
 const root = path.join(__dirname, '../..')
 
-const FILE_GOOD = 'good'
-const FILE_BAD = 'bad'
-const FILE_ESLINTRC = '.eslintrc'
-const FILE_EXT = ['js', 'vue', 'ts']
+export const FILE_GOOD = 'good'
+export const FILE_BAD = 'bad'
+export const FILE_ESLINTRC = '.eslintrc'
+export const FILE_EXT = ['js', 'vue', 'ts']
 
 /**
  * 验证测试文件是否都存在
  */
-const checkTestFilesExists = () => {
+export const checkTestFilesExists = (): void => {
   namespace.forEach((namespace) => {
     const ruleList = globSync(path.join(root, 'tests', namespace, '*/*'))
 
@@ -36,11 +37,11 @@ const checkTestFilesExists = () => {
 
 /**
  * 返回用例的查询模式
- * @param {number} fileName 文件名
+ * @param {string} fileName 文件名
  * @param {string} ruleNamespacePath
  * @return {string[]}
  */
-const getReportPattern = (fileName, ruleNamespacePath) => {
+export const getReportPattern = (fileName: string, ruleNamespacePath: string): string[] => {
   return [
     path.join(ruleNamespacePath, '**', `${fileName}.+(${FILE_EXT.join('|')})`),
   ]
@@ -50,7 +51,7 @@ const getReportPattern = (fileName, ruleNamespacePath) => {
  * 测试正确用例
  * @param {LintReport} goodReports
  */
-const goodReportTest = (goodReports) => {
+export const goodReportTest = (goodReports: CLIEngine.LintReport): void => {
   goodReports.results.forEach((goodReport) => {
     const { filePath, errorCount } = goodReport
 
@@ -66,7 +67,7 @@ const goodReportTest = (goodReports) => {
  * 测试错误用例
  * @param {LintReport} badReports
  */
-const badReportTest = (badReports) => {
+export const badReportTest = (badReports: CLIEngine.LintReport): void => {
   badReports.results.forEach((badReport) => {
     const { filePath, errorCount } = badReport
 
@@ -80,24 +81,12 @@ const badReportTest = (badReports) => {
   })
 }
 
-module.exports = {
-  FILE_GOOD,
-  FILE_BAD,
-  FILE_ESLINTRC,
-  FILE_EXT,
-
-  checkTestFilesExists,
-  getReportPattern,
-  goodReportTest,
-  badReportTest,
-}
-
 /**
  * 获得错误用例具体错误数
  * @param {string} filePath 绝对地址
  * @return {number}
  */
-function getBadReportErrorCount(filePath) {
+function getBadReportErrorCount(filePath: string): number {
   const badReportContent = readFileSync(filePath, 'utf-8')
   const match = /\/\/ errorCount (\d+)/.exec(badReportContent)
 

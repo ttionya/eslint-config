@@ -1,14 +1,14 @@
-const path = require('path')
-const { CLIEngine } = require('eslint')
-const { namespace } = require('../libs/namespace')
-const {
+import path from 'path'
+import { CLIEngine } from 'eslint'
+import { namespace } from '../libs/namespace'
+import {
   FILE_GOOD,
   FILE_BAD,
   checkTestFilesExists,
   getReportPattern,
   goodReportTest,
   badReportTest,
-} = require('../libs/utils/test')
+} from '../libs/utils/test'
 
 const root = path.join(__dirname, '..')
 
@@ -20,11 +20,12 @@ try {
   process.exit(1)
 }
 
-namespace.forEach((namespace) => {
+namespace.forEach((namespace): void => {
   const ruleNamespacePath = path.join(__dirname, namespace)
 
   const cli = new CLIEngine({
-    configFile: path.join(root, 'dist', `${namespace}.js`),
+    // 此处要直接使用根目录上的配置文件，否则 parserServices 会找不到路径
+    configFile: path.join(root, `${namespace}.js`),
     ignore: false,
     useEslintrc: false,
   })
