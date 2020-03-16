@@ -3,25 +3,25 @@
  * https://github.com/ttionya/eslint-config
  *
  * Author: ttionya <my@ttionya.com>
- * Version: 1.0.0
+ * Version: 1.0.1
  *
  * 此文件是由脚本 scripts/build.js 自动生成
  */
 module.exports = {
   root: true,
 
-  parser: '@typescript-eslint/parser',
-
-  parserOptions: {
-    project: ['./tsconfig.json'],
-    tsconfigRootDir: __dirname,
-  },
-
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
 
       extends: ['plugin:@typescript-eslint/eslint-recommended', 'plugin:@typescript-eslint/recommended'],
+
+      parser: '@typescript-eslint/parser',
+
+      parserOptions: {
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: __dirname,
+      },
 
       plugins: ['@typescript-eslint'],
 
