@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/explicit-function-return-type */
-
 const path = require('path')
 const { sync: globSync } = require('glob')
 const { lstatSync } = require('fs')
