@@ -2,7 +2,7 @@
 
 export default 1
 
-let bar: string | number
+const bar: string | number = Math.random() ? 1 : '1'
 const foo = bar as string
 
 const baz = {

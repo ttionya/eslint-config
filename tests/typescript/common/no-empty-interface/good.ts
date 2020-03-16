@@ -1,3 +1,5 @@
+export default 1
+
 interface IFoo {
   name: string
 }

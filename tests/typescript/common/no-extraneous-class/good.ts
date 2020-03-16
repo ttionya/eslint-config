@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+export default 1
+
 const decorator = <T>(classes: T): T => classes
 
 class EmptyClass extends Event {}
@@ -9,6 +11,6 @@ class ParameterProperties {
   name: string
 
   constructor(name: string) {
-    console.log(1)
+    this.name = name
   }
 }

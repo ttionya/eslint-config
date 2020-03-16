@@ -1,3 +1,5 @@
+export default 1;
+
 (async (): Promise<void> => {
   await Promise.resolve('value')
 

@@ -1,6 +1,8 @@
 // errorCount 3
 /* eslint-disable @typescript-eslint/consistent-type-definitions, @typescript-eslint/unified-signatures */
 
+export default 1
+
 declare namespace NSFoo {
   export function foo(s: string): void
   export function foo(n: number): void

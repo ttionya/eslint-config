@@ -1,5 +1,7 @@
 // errorCount 2
 
+export default 1;
+
 (async (): Promise<void> => {
   await 'value'
 

@@ -2,3 +2,5 @@
 /* eslint-disable spaced-comment */
 
 /// <reference path="./good.ts">
+
+export default 1

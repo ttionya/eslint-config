@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 
+export default 1
+
 interface IFoo {
   name: string
   greet(): string
