@@ -2,6 +2,10 @@
 
 一套 ESLint 规则。
 
+## DEPRECATED
+
+该仓库已废弃，项目迁移至 [ttionya/Linter](https://github.com/ttionya/Linter/tree/master/packages/eslint-config#readme)。
+
 ## 规则列表
 
 根据项目使用不同的配置：
